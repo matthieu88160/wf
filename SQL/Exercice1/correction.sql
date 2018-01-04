@@ -1,6 +1,6 @@
-CREATE database tmp CHARACTER SET utf8 COLLATE utf8_bin;
+CREATE database test CHARACTER SET utf8 COLLATE utf8_bin;
 
-USE tmp;
+USE test;
 
 CREATE TABLE roles(
 	id INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
