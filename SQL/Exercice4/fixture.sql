@@ -17,6 +17,15 @@ CREATE TABLE Address (
   UNIQUE INDEX (id)
 ) type=InnoDB;
 
+CREATE TABLE person_address (
+  Personid       int(10) NOT NULL, 
+  Addressid      int(10) NOT NULL, 
+  Address_typeid int(10) NOT NULL, 
+  PRIMARY KEY (Personid, 
+  Addressid, 
+  Address_typeid)
+) type=InnoDB;
+
 CREATE TABLE Country (
   id   int(10) NOT NULL AUTO_INCREMENT, 
   name varchar(255) NOT NULL, 
@@ -44,3 +53,9 @@ CREATE TABLE Town (
   UNIQUE INDEX (name), 
   UNIQUE INDEX (postal_code)
 ) type=InnoDB;
+  
+ALTER TABLE person_address ADD INDEX a (Personid), ADD CONSTRAINT a FOREIGN KEY (Personid) REFERENCES Person (id);
+ALTER TABLE person_address ADD INDEX c (Addressid), ADD CONSTRAINT c FOREIGN KEY (Addressid) REFERENCES Address (id);
+ALTER TABLE Address ADD INDEX d (Townid), ADD CONSTRAINT d FOREIGN KEY (Townid) REFERENCES Town (id);
+ALTER TABLE Town ADD INDEX e (Countryid), ADD CONSTRAINT e FOREIGN KEY (Countryid) REFERENCES Country (id);
+ALTER TABLE person_address ADD INDEX b (Address_typeid), ADD CONSTRAINT b FOREIGN KEY (Address_typeid) REFERENCES Address_type (id);
