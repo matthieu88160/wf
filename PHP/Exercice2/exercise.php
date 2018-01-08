@@ -1,0 +1,5 @@
+<?php
+$password;
+$salt;
+
+$saltedPassword = '';
