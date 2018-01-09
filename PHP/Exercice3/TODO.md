@@ -11,4 +11,4 @@ In the $input variable, you will find an array with two dimention representing t
 input : [[2,3], ...]
 winner : 'A'
 
-To validate it, just cd into the Exercice2 folder and run "php phpunit-6.5.5.phar".
+To validate it, just cd into the Exercice3 folder and run "php phpunit-6.5.5.phar".

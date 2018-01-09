@@ -6,4 +6,4 @@ The returning date is expected to be a string, and to follow the following forma
 
 The function MUST be named 'getAllMondaysOfMonth'.
 
-To validate it, just cd into the Exercice2 folder and run "php phpunit-6.5.5.phar".
+To validate it, just cd into the Exercice4 folder and run "php phpunit-6.5.5.phar".
