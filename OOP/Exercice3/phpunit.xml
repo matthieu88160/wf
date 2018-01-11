@@ -1,0 +1,26 @@
+<phpunit
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/6.3/phpunit.xsd"
+	backupGlobals="true"
+	backupStaticAttributes="false"
+	convertErrorsToExceptions="true"
+	convertNoticesToExceptions="true"
+	convertWarningsToExceptions="true"
+	stopOnError="false"
+	stopOnFailure="false"
+	stopOnIncomplete="false"
+	stopOnSkipped="false"
+	stopOnRisky="false"
+	verbose="false"
+	bootstrap="src/autoload.php"
+>
+
+	<testsuites>
+		<testsuite name="Exercise_1">
+			<file>ExceptionTest.php</file>
+			<file>RoleTest.php</file>
+			<file>UserTest.php</file>
+		</testsuite>
+	</testsuites>
+
+</phpunit>
