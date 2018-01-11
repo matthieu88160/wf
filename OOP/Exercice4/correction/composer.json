@@ -1,0 +1,21 @@
+{
+	"name" : "matthieu88160/exercice4",
+	"description" : "wf exo 4",
+	"type" : "exercice",
+	"require" : {
+		"symfony/security" : "^4.0"
+	},
+	"require-dev" : {
+		"phpunit/phpunit" : "^6.5"
+	},
+	"license" : "CC BY-NC-SA",
+	"authors" : [{
+			"name" : "matthieu vallance",
+			"email" : "matthieu.vallance@cscfa.fr"
+		}
+	],
+	"minimum-stability" : "dev",
+    "autoload": {
+        "psr-4": { "": "" }
+    }
+}
