@@ -1,18 +1,14 @@
 # Exercice 1
 
-In this exercice, we need to create the home-page of the TagBeSill project.
+In this exercice, we need to create the add-page of the TagBeSill project.
 
-You must use the "fixture.sql" file to create the testing data.
-
-The test will need some dependencies. So you are expected to install them with composer.
-
-Test case :
- * Uou must create a well formed html page
- * You must load the records from the database
- * Foreach record :
- 	* The record image must be displayed into the html
- 	* The record title must be displayed into the html
- 	* The record description must be displayed into the html
+This page must display a form, with the following fields :
+ * addProject\_title 		a text field
+ * addProject\_description 	a textarea field
+ * addProject\_image 		a file field
+ * addProject\_csrf\_token	an hidden field
+ 
+A csrf token must be generated and inserted as the addProject\_csrf\_token field value
 
 To validate it, just cd into the exercice folder and run "php phpunit-6.5.5.phar".
- 	
+ 

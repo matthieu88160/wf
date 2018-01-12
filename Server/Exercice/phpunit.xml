@@ -11,6 +11,7 @@
 	stopOnIncomplete="false"
 	stopOnSkipped="false"
 	stopOnRisky="false"
+    processIsolation="true"
 	verbose="false"
 	bootstrap="vendor/autoload.php"
 >
