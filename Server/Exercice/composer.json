@@ -1,0 +1,21 @@
+{
+    "name": "wf/exercice",
+    "description": "PHP as server exercice",
+    "type": "project",
+    "require": {
+        "symfony/dom-crawler": "^4.0",
+        "symfony/css-selector": "^4.0",
+        "phpunit/phpunit": "^6.5"
+    },
+    "license": "CC BY-NC-SA",
+    "authors": [
+        {
+            "name": "matthieu vallance",
+            "email": "matthieu.vallance@vesperiagroup.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "autoload": {
+        "psr-4": { "": "correction" }
+    }
+}
