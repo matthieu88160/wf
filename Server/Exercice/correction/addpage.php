@@ -123,7 +123,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
         
         if($stmt->execute()) {
-            // working
+            header('Location: ./homepage.php');
+            return;
         } else {
             var_dump($stmt->errorInfo());
         }
