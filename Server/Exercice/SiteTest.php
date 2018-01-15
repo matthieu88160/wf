@@ -4,7 +4,7 @@ use Symfony\Component\DomCrawler\Crawler;
 
 class SiteTest extends TestCase
 {
-    private const CONTEXT = __DIR__ . '/correction/';
+    private const CONTEXT = __DIR__ . '/src/';
     
     public function testSession()
     {

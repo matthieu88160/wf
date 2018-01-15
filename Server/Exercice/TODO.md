@@ -1,7 +1,7 @@
-# Exercice 3
+# Exercice 4
 
-To perform the CSRF token validation, it's necessary to store this token between requests. Using the session management of PHP, store a set of generated CSRF token to be further validated.
+In this exercice, you must process the form data and escape the inputs.
 
-Take care about the fact a client can request multiple forms or CRSF tokens and apply them after a time.
+The validation of the CSRF must be done.
 
-You must keep in mind the server usage to scale the session storage weight.
+The validation must be done manually, due to several uneeded side effects in case of automation.
