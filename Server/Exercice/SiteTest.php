@@ -6,6 +6,24 @@ class SiteTest extends TestCase
 {
     private const CONTEXT = __DIR__ . '/correction/';
     
+    public function testSession()
+    {
+        $filename = self::CONTEXT.'addpage.php';
+        $this->assertFileExists($filename, 'The file addpage.php is expected to be defined');
+        
+        $_SERVER['REQUEST_METHOD'] = 'GET';
+            
+        ob_start();
+        include $filename;
+        ob_end_clean();
+        
+        $this->assertEquals(PHP_SESSION_NONE, session_status(), 'The session is expected to be closed before the end of script');
+        
+        session_start();
+        
+        $this->assertNotEmpty($_SESSION, 'The session is not expected to be empty');
+    }
+    
     public function testHomePageHtml()
     {
         $filename = self::CONTEXT.'homepage.php';

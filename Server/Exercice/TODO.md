@@ -1,14 +1,7 @@
-# Exercice 1
+# Exercice 3
 
-In this exercice, we need to create the add-page of the TagBeSill project.
+To perform the CSRF token validation, it's necessary to store this token between requests. Using the session management of PHP, store a set of generated CSRF token to be further validated.
 
-This page must display a form, with the following fields :
- * addProject\_title 		a text field
- * addProject\_description 	a textarea field
- * addProject\_image 		a file field
- * addProject\_csrf\_token	an hidden field
- 
-A csrf token must be generated and inserted as the addProject\_csrf\_token field value
+Take care about the fact a client can request multiple forms or CRSF tokens and apply them after a time.
 
-To validate it, just cd into the exercice folder and run "php phpunit-6.5.5.phar".
- 
+You must keep in mind the server usage to scale the session storage weight.
