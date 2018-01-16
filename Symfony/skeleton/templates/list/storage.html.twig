@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+	<ul>
+		{% for element in list['DIR'] %}
+			<li>{{ element }}</li>
+		{% endfor %}
+		{% for element in list['FILES'] %}
+			<li>{{ element }}</li>
+		{% endfor %}
+	</ul>
+{% endblock %}

@@ -1,3 +1,7 @@
 index:
     path: /
     controller: App\Controller\IndexController::indexAction
+
+store_list:
+    path: /list/storage
+    controller: App\Controller\IndexController::storageListAction
