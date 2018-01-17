@@ -1,4 +1,11 @@
-# Exercice 4
+# Exercice 5
 
-Create a service to list all of the files and directories in the var/storage folder.
-By using this service, create a new controller action, and display this list using twig on request to '/list/storage'.
+In this exercise, using 'make' and 'doctrine', you will create a new database and an entity 'Project'.
+
+The 'Project' entity will represent the following table definition :
+ * id 			auto incremental primary key
+ * name			the name of the project
+ * description 	the description of the project
+ * createdAt	the project date of insertion
+ * published	a publication status, true or false
+ * deleted		a deletion state, take precedence on published, true or false
