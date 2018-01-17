@@ -1,6 +1,4 @@
-# Exercice 3
+# Exercice 4
 
-In this exercise, you must create a new template for the index controller, in the folder /templates/index
-This template must extends the base.html.twig template.
-
-By doing this, you are able to replace the IndexController::indexAction script to render the new template.
+Create a service to list all of the files and directories in the var/storage folder.
+By using this service, create a new controller action, and display this list using twig on request to '/list/storage'.
