@@ -1,11 +1,30 @@
-# Exercice 5
+# Exercice 6
 
-In this exercise, using 'make' and 'doctrine', you will create a new database and an entity 'Project'.
+In this exercise, you will create a REST CRUD system to manipulate the projects. You will be allowed to use : Symfony\Component\HttpFoundation\JsonResponse
 
-The 'Project' entity will represent the following table definition :
- * id 			auto incremental primary key
- * name			the name of the project
- * description 	the description of the project
- * createdAt	the project date of insertion
- * published	a publication status, true or false
- * deleted		a deletion state, take precedence on published, true or false
+The URIs must be compliant with these specifications :
+
+/projects:
+	Method:		GET
+	Parameters: []
+	Response:	All not deleted and published projects into a JSON array
+
+/project/{id}:
+	Method:		GET
+	Parameters: []
+	Response:	The asked project as JSON
+
+/project/{id}:
+	Method:		DELETE
+	Parameters: []
+	Response:
+
+/project/{id}:
+	Method:		PUT
+	Parameters: ['title', 'description', 'published']
+	Response:
+
+/project:
+	Method:		POST
+	Parameters: ['title', 'description', 'published']
+	Response:	The created project as JSON
