@@ -2,6 +2,11 @@ index:
     path: /
     controller: App\Controller\IndexController::indexAction
 
+register:
+    path: /register
+    controller: App\Controller\UserController::registerAction
+    methods: ['GET', 'POST']
+
 store_list:
     path: /list/storage
     controller: App\Controller\IndexController::storageListAction
