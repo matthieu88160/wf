@@ -30,4 +30,18 @@ project_update:
     path: /project/{project}
     controller: App\Controller\ProjectController::updateProjectAction
     methods: ['PUT']
-    
+
+project_office_list:
+    path: /office/projects
+    controller: App\Controller\OfficeController::projectListAction
+    methods: ['GET']
+
+project_office_create:
+    path: /office/project
+    controller: App\Controller\OfficeController::projectFormAction
+    methods: ['GET', 'POST']
+
+project_office_update:
+    path: /office/project/{project}
+    controller: App\Controller\OfficeController::projectFormAction
+    methods: ['GET', 'POST']

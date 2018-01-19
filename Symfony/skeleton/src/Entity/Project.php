@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ProjectRepository")
@@ -19,11 +20,13 @@ class Project
     
     /**
      * @ORM\Column(type="string", length=255, unique=true, nullable=false)
+     * @Assert\NotBlank()
      */
     private $name;
     
     /**
      * @ORM\Column(type="text", unique=false, nullable=false)
+     * @Assert\NotBlank()
      */
     private $description;
     
@@ -31,9 +34,10 @@ class Project
      * @ORM\Column(type="datetimetz", nullable=false)
      */
     private $createdAt;
-    
+
     /**
      * @ORM\Column(type="boolean", nullable=false, options={"default":false})
+     * @Assert\Type("bool")
      */
     private $published = false;
     

@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<a href='{{ path('project_office_create') }}'>Add new</a>
+<ul>
+	{% for project in projects %}
+	<li>
+		{{ project.name }}
+		<a href='{{ path('project_office_update', {'project':project.id}) }}'>update</a>
+	</li>
+	{% endfor %}
+</ul>
+{% endblock %}
