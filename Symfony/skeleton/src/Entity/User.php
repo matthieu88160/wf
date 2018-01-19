@@ -1,0 +1,122 @@
+<?php
+
+namespace App\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Security\Core\User\UserInterface;
+
+/**
+ * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
+ * @ORM\Table(name="user",indexes={@ORM\Index(name="user_username_idx", columns={"username"})})
+ */
+class User implements UserInterface
+{
+    /**
+     * @ORM\Id
+     * @ORM\GeneratedValue
+     * @ORM\Column(type="integer")
+     */
+    private $id;
+    
+    /**
+     * @ORM\ManyToMany(targetEntity="Role")
+     * @ORM\JoinTable(name="users_roles",
+     *      joinColumns={@ORM\JoinColumn(name="user_id", referencedColumnName="id")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="role_id", referencedColumnName="id")}
+     *      )
+     */
+    private $roles = [];
+    
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $password;
+    
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $salt;
+    
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $username;
+    
+    public function getId()
+    {
+        return $this->id;
+    }
+    
+    public function getRoles()
+    {
+        $roles = array_map([$this, 'roleToLabel'], $this->roles);
+        
+        if (!in_array(Role::ROLE_USER, $roles)) {
+            array_push($roles, Role::ROLE_USER);
+        }
+        
+        return $roles;
+    }
+    
+    public function getPassword()
+    {
+        return $this->password;
+    }
+    
+    public function getSalt()
+    {
+        return $this->salt;
+    }
+    
+    public function getUsername()
+    {
+        return $this->username;
+    }
+    
+    public function setRoles(array $roles)
+    {
+        $this->roles = [];
+        
+        array_map([$this, 'addRole'], $roles);
+        
+        return $this;
+    }
+    
+    public function addRole(Role $role)
+    {
+        if (!in_array($role, $this->roles)) {
+            array_push($this->roles, $role);
+        }
+        
+        return $this;
+    }
+    
+    public function setPassword($password)
+    {
+        $this->password = $password;
+        return $this;
+    }
+    
+    public function setSalt($salt)
+    {
+        $this->salt = $salt;
+        return $this;
+    }
+    
+    public function setUsername($username)
+    {
+        $this->username = $username;
+        return $this;
+    }
+    
+    public function eraseCredentials()
+    {
+        $this->password = null;
+        $this->salt = null;
+    }
+    
+    protected function roleToLabel(Role $role)
+    {
+        return $role->getLabel();
+    }
+}
