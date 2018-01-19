@@ -1,30 +1,7 @@
-# Exercice 6
+# Exercice 7
 
-In this exercise, you will create a REST CRUD system to manipulate the projects. You will be allowed to use : Symfony\Component\HttpFoundation\JsonResponse
+During this exercise, we will work on the forms.
 
-The URIs must be compliant with these specifications :
+We want to create a form type for the Project entities, and display it into a project creation template.
 
-/projects:
-	Method:		GET
-	Parameters: []
-	Response:	All not deleted and published projects into a JSON array
-
-/project/{id}:
-	Method:		GET
-	Parameters: []
-	Response:	The asked project as JSON
-
-/project/{id}:
-	Method:		DELETE
-	Parameters: []
-	Response:
-
-/project/{id}:
-	Method:		PUT
-	Parameters: ['title', 'description', 'published']
-	Response:
-
-/project:
-	Method:		POST
-	Parameters: ['title', 'description', 'published']
-	Response:	The created project as JSON
+A new route will be created at '/office/project' to display and process this form.
