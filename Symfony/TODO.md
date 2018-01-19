@@ -1,7 +1,5 @@
-# Exercice 7
+# Exercice 8
 
-During this exercise, we will work on the forms.
+Using the source code written during the OOP exercise 4, create a App\User and a App\Role entities.
 
-We want to create a form type for the Project entities, and display it into a project creation template.
-
-A new route will be created at '/office/project' to display and process this form.
+You must define the relation between a User and it's roles, create the migration and execute it. 
