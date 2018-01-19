@@ -1,0 +1,35 @@
+
+{% use "form_div_layout.html.twig" %}
+
+{%- block button_widget -%}
+	
+    {%- set attr = attr|merge({class: (attr.class|default('btn-default') ~ ' btn btn-block')|trim}) -%}
+    
+    {%- if label is empty -%}
+        {%- if label_format is not empty -%}
+            {% set label = label_format|replace({
+                '%name%': name,
+                '%id%': id,
+            }) %}
+        {%- elseif label is same as(false) -%}
+            {% set translation_domain = false %}
+        {%- else -%}
+            {% set label = name|humanize %}
+        {%- endif -%}
+    {%- endif -%}
+    <div class="container">
+        <div class="col-md-6 col-md-offset-3">
+        	<button type="{{ type|default('button') }}" {{ block('button_attributes') }}>{{ translation_domain is same as(false) ? label : label|trans({}, translation_domain) }}</button>
+        </div>
+    </div>
+{%- endblock button_widget -%}
+
+{%- block form_row -%}
+    <div class='form-group'>
+	        {{- form_label(form) -}}
+            {{- form_widget(form, {'attr': {'class': 'form-control'}}) -}}
+    	<div class='col-md-12'>
+            {{- form_errors(form) -}}
+        </div>
+    </div>
+{%- endblock form_row -%}
