@@ -10,6 +10,7 @@ use App\Entity\User;
 use App\Form\UserFormType;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Response;
+use App\Entity\Role;
 
 class UserController
 {
@@ -50,6 +51,12 @@ class UserController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $role = $this->manager->getRepository(Role::class)->findOneByLabel(Role::ROLE_USER);
+            if (!$role) {
+                throw new \RuntimeException('User cannot be created with role configuration');
+            }
+            $user->addRole($role);
+            
             $this->manager->persist($user);
             $this->manager->flush();
             
