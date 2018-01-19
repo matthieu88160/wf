@@ -5,3 +5,29 @@ index:
 store_list:
     path: /list/storage
     controller: App\Controller\IndexController::storageListAction
+
+project:
+    path: /project/{project}
+    controller: App\Controller\ProjectController::getProjectAction
+    methods: ['GET']
+
+project_del:
+    path: /project/{project}
+    controller: App\Controller\ProjectController::deleteProjectAction
+    methods: ['DELETE']
+
+project_list:
+    path: /projects
+    controller: App\Controller\ProjectController::getProjectsAction
+    methods: ['GET']
+
+project_create:
+    path: /project
+    controller: App\Controller\ProjectController::addProjectAction
+    methods: ['POST']
+
+project_update:
+    path: /project/{project}
+    controller: App\Controller\ProjectController::updateProjectAction
+    methods: ['PUT']
+    
