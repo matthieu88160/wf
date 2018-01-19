@@ -12,6 +12,7 @@
         "symfony/lts": "^4@dev",
         "symfony/options-resolver": "^4.0",
         "symfony/orm-pack": "^1.0",
+        "symfony/security-csrf": "^4.0",
         "symfony/serializer-pack": "^1.0",
         "symfony/twig-bundle": "^4.0",
         "symfony/validator": "^4.0",
