@@ -5,3 +5,5 @@ Using the source code written during the OOP exercise 4, create a App\User and a
 You must define the relation between a User and it's roles, create the migration and execute it. 
 
 As you know Form component, you will create a registration form for the new users.
+
+Don't forget to create the ROLE\_USER and ROLE\_ADMIN roles into the database ;) 
