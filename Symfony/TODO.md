@@ -1,9 +1,12 @@
-# Exercice 8
+# Exercice 9
 
-Using the source code written during the OOP exercise 4, create a App\User and a App\Role entities.
+In this exercise, we will secure the application.
 
-You must define the relation between a User and it's roles, create the migration and execute it. 
+First, define the encoder for the App\Entity\User.
+Define the provider for the "main" firewall.
+Specify the main firewall configuration :
+	It must define a login form and a logout.
 
-As you know Form component, you will create a registration form for the new users.
+Keep in mind to implement "EquatableInterface" in User class and to define the login and logout routes.
 
-Don't forget to create the ROLE\_USER and ROLE\_ADMIN roles into the database ;) 
+After, create the login controller and template.
