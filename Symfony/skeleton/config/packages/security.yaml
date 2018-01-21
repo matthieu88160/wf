@@ -28,5 +28,3 @@ security:
             logout:
                 path:   /logout
                 target: /
-    access_control:
-        - { path: ^/office, roles: ROLE_USER }
