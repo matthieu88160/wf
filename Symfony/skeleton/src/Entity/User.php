@@ -56,7 +56,10 @@ class User implements UserInterface
     
     public function getRoles()
     {
-        $roles = array_map([$this, 'roleToLabel'], $this->roles);
+        $roles = [];
+        foreach ($this->roles as $role) {
+            $roles[] = $this->roleToLabel($role);
+        }
         
         if (!in_array(Role::ROLE_USER, $roles)) {
             array_push($roles, Role::ROLE_USER);

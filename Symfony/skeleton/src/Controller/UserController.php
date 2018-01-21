@@ -11,6 +11,7 @@ use App\Form\UserFormType;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Response;
 use App\Entity\Role;
+use Symfony\Component\Security\Core\Encoder\EncoderFactoryInterface;
 
 class UserController
 {
@@ -42,10 +43,9 @@ class UserController
         $this->urlGenerator = $urlGenerator;
     }
     
-    public function registerAction(Request $request)
+    public function registerAction(Request $request, EncoderFactoryInterface $encoderFactory)
     {
         $user = new User();
-        $user->setSalt(123);
         
         $form = $this->formFactory->create(UserFormType::class, $user, ['standalone' => true]);
         $form->handleRequest($request);
@@ -56,6 +56,10 @@ class UserController
                 throw new \RuntimeException('User cannot be created with role configuration');
             }
             $user->addRole($role);
+            $user->setSalt(md5($user->getUsername()));
+            
+            $password = $encoderFactory->getEncoder(User::class)->encodePassword($user->getPassword(), $user->getSalt());
+            $user->setPassword($password);
             
             $this->manager->persist($user);
             $this->manager->flush();
