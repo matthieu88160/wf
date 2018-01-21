@@ -17,13 +17,16 @@ security:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
         main:
-            anonymous: ~
+            pattern: .*
+            anonymous: true
             provider: user_provider
 
-            # activate different ways to authenticate
-
-            # http_basic: ~
-            # https://symfony.com/doc/current/security.html#a-configuring-how-your-users-will-authenticate
-
-            # form_login: ~
-            # https://symfony.com/doc/current/security/form_login_setup.html
+            form_login:
+                check_path: login
+                login_path: login
+                default_target_path:  /
+            logout:
+                path:   /logout
+                target: /
+    access_control:
+        - { path: ^/office, roles: ROLE_USER }

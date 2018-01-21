@@ -14,6 +14,7 @@ use App\Entity\Role;
 use Symfony\Component\Security\Core\Encoder\EncoderFactoryInterface;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 use Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken;
+use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
 class UserController
 {
@@ -72,6 +73,24 @@ class UserController
         }
         
         return new Response($this->twig->render('registration.html.twig', ['form' => $form->createView()]));
+    }
+    
+    public function loginAction(Request $request, AuthenticationUtils $authUtils)
+    {
+        // get the login error if there is one
+        $error = $authUtils->getLastAuthenticationError();
+        
+        // last username entered by the user
+        $lastUsername = $authUtils->getLastUsername();
+        
+        return new Response(
+            $this->twig->render(
+                'login/login.html.twig', array(
+                    'last_username' => $lastUsername,
+                    'error'         => $error,
+                )
+            )
+        );
     }
 }
 

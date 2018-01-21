@@ -50,3 +50,9 @@ project_office_update:
     path: /office/project/{project}
     controller: App\Controller\OfficeController::projectFormAction
     methods: ['GET', 'POST']
+
+login:
+    path: /login
+    controller: App\Controller\UserController::loginAction
+logout:
+    path: /logout

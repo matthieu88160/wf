@@ -5,12 +5,14 @@ namespace App\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Security\Core\User\EquatableInterface;
+use phpDocumentor\Reflection\Types\Static_;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
  * @ORM\Table(name="user",indexes={@ORM\Index(name="user_username_idx", columns={"username"})})
  */
-class User implements UserInterface
+class User implements UserInterface, EquatableInterface
 {
     /**
      * @ORM\Id
@@ -128,5 +130,19 @@ class User implements UserInterface
     protected function roleToLabel(Role $role)
     {
         return $role->getLabel();
+    }
+    
+    public function isEqualTo(UserInterface $user)
+    {
+        $class = User::class;
+        if (
+            !($user instanceof $class) ||
+            $user->getId() !== $this->id ||
+            $user->getUsername() !== $this->username
+        ) {
+            return false;
+        }
+        
+        return true;
     }
 }
