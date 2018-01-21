@@ -8,13 +8,17 @@ security:
             key_length:           40
     # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
     providers:
-        in_memory: { memory: ~ }
+        user_provider:
+            entity:
+                class:    App\Entity\User
+                property: username
     firewalls:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
         main:
             anonymous: ~
+            provider: user_provider
 
             # activate different ways to authenticate
 

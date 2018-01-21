@@ -12,6 +12,8 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Response;
 use App\Entity\Role;
 use Symfony\Component\Security\Core\Encoder\EncoderFactoryInterface;
+use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
+use Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken;
 
 class UserController
 {
@@ -43,7 +45,7 @@ class UserController
         $this->urlGenerator = $urlGenerator;
     }
     
-    public function registerAction(Request $request, EncoderFactoryInterface $encoderFactory)
+    public function registerAction(Request $request, EncoderFactoryInterface $encoderFactory, TokenStorageInterface $tokenStorage)
     {
         $user = new User();
         
@@ -63,6 +65,8 @@ class UserController
             
             $this->manager->persist($user);
             $this->manager->flush();
+            
+            $tokenStorage->setToken(new UsernamePasswordToken($user, null, 'main', $user->getRoles()));
             
             return new RedirectResponse($this->urlGenerator->generate('index'));
         }
