@@ -1,3 +1,5 @@
-# Exercice 10
+# Exercice 11
 
-In this axercise, we will install monolog, and secure the access of /office pages under ROLE_ADMIN.
+Now, we will create a header.html.twig template and use asset management to include a web site logo.
+
+This template is created to be used directly in base.html.twig
