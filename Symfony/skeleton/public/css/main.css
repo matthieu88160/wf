@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css?family=Macondo');
+
+.header-logo{
+	max-width: 10vw; 
+}
+.site-title{
+	font-size: 2.5em;
+	font-weight: bold;
+	font-family: 'Macondo', cursive;
+}
+.mb-2{ margin-bottom: 2vh; }
+.mb-5{ margin-bottom: 5vh; }
+.mb-10{ margin-bottom: 10vh; }
+
+.pt-2{ padding-top: 2vh; }
+.pt-5{ padding-top: 5vh; }
+.pt-10{ padding-top: 10vh; }
