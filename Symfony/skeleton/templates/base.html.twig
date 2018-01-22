@@ -11,6 +11,9 @@
     <body class='container'>
     	{% block header %}{% include 'header/header.html.twig' %}{% endblock %}
         {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
+        {% block javascripts %}
+        	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+        	<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        {% endblock %}
     </body>
 </html>
