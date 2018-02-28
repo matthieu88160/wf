@@ -15,7 +15,7 @@ You MUST create 3 file with one function in each one, each file in it's own fold
 You MUST make use of namespace.
 
 Api response example :
-
+```json
 {
     "1forge.com": {
         "added": "2017-05-30T08:34:14.000Z",
@@ -99,4 +99,4 @@ Api response example :
         }
     }
 ]
- 
+```
